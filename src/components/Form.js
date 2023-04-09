@@ -10,7 +10,7 @@ function Form() {
     console.log("clicked", subject, duration);
 
     const data = await axios.post(
-      "http://localhost:5000/courses",
+      `${process.env.REACT_APP_BACKEND_URL}/courses`,
       {
         title: subject,
         duration,
