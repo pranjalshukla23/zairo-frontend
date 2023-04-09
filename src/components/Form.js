@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Form() {
   const [subject, setSubject] = useState("Java");
   const [duration, setDuration] = useState("10");
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("clicked", subject, duration);
@@ -22,7 +24,7 @@ function Form() {
       }
     );
 
-    console.log(data);
+    setIsSubmitted(true);
   };
   return (
     <div className=' flex flex-col justify-center items-center h-screen'>
@@ -73,6 +75,11 @@ function Form() {
           confirm enrollment
         </button>
       </form>
+      {isSubmitted && (
+        <button className='mt-4 bg-orange-500 p-2 rounded-md  text-2xl font-bold text-white hover:scale-150 transition-all ease-in-out'>
+          <Link to='/schedule'>Go To Your Schedule</Link>
+        </button>
+      )}
     </div>
   );
 }
