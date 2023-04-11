@@ -47,7 +47,6 @@ function Form() {
             }}
           >
             <option value='java'>Java</option>
-            <option value='python'>Python</option>
           </select>
         </div>
 

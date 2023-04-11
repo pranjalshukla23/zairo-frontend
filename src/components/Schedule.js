@@ -55,6 +55,8 @@ function Schedule() {
 
     const eventsList = [...data];
 
+    console.log("data", data);
+
     setAllEvents(eventsList);
   };
 
@@ -73,8 +75,12 @@ function Schedule() {
         <Calendar
           localizer={localizer}
           events={allEvents}
-          startAccessor='start'
-          endAccessor='end'
+          startAccessor={(event) => {
+            return new Date(event.start);
+          }}
+          endAccessor={(event) => {
+            return new Date(event.end);
+          }}
           style={{ height: 700, margin: "50px" }}
           className='w-3/4'
         />
